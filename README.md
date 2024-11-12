@@ -14,4 +14,5 @@ Winner Determination: A function determines the winner based on game rules, upda
 Game Reset: The game resets once three rounds is won by player or computer.
 
 my javascrip solution is named myCode
+
 chatGpt revision on my code is name chatGptRevision
