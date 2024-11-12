@@ -14,9 +14,11 @@ const playButton = document.querySelector('.playButton')
 // Create variable for select element
 const select = document.getElementById('selectOption')
 
+// Create function getHumanChoice
+function getHumanChoice(){ humanChoice = select.value }
+
 // Create event listener to human choice
-    select.addEventListener('change', function getHumanChoice(){
-        humanChoice = select.value})
+    select.addEventListener('change', getHumanChoice)
 
 
         
@@ -42,7 +44,7 @@ const select = document.getElementById('selectOption')
 
         
         // alert computerChoice
-        alert (`You threw ${humanChoice} and Computer threw ${computerChoice}`)
+        alert (`You threw ${humanChoice}, Computer threw ${computerChoice}`)
         
         
         // Draw
