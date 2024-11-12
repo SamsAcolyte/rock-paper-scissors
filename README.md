@@ -13,6 +13,6 @@ Winner Determination: A function determines the winner based on game rules, upda
 
 Game Reset: The game resets once three rounds is won by player or computer.
 
-my javascript code file is named myCode
+my javascript code file is named myCode. The live deployment is linked to my code
 
-chatGpt revision on my code is in the file named chatGptRevision
+Chatgpt's revision on my code is in the file named chatGptRevision.
