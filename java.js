@@ -4,6 +4,10 @@
 // Create variable humanChoice
     let humanChoice;
 
+// Create score variables
+let humanScore = 0;
+let computerScore = 0;
+
 // Create variable for select element
     const select = document.getElementById('selectOption')
 
@@ -27,10 +31,6 @@
     }
     }
 
-// Create function getHumanChoice
-    // function getHumanChoice (){
-    //     humanChoice = prompt('Choose!');
-    // }
 
 // Create function determineWinner
     function determineWinner () {
@@ -59,13 +59,15 @@
             || (computerChoice === 'scissors' && humanChoice === 'rock')
         )
         {
-            alert ('You win!')
+            humanScore += 1;
+            alert ('You win!');
         }
 
         // Human lose
 
         else {
-            alert ('You lose!')
+            computerScore += 1;
+            alert ('You lose!');
         }
     }
 // Create function play
@@ -84,3 +86,6 @@ const playButton = document.querySelector('.playButton')
 
 // Add event listener to button
 playButton.addEventListener('click',play)
+
+
+
