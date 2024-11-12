@@ -1,7 +1,7 @@
 // Create variable computerChoice
     let computerChoice;
 // Create variable humanChoice
-    
+    let humanChoice;
 // Create function getComputerChoice
 function getComputerChoice(){
     computerChoice= Math.random(computerChoice);
@@ -17,5 +17,7 @@ function getComputerChoice(){
 }
 
 // Create function getHumanChoice
-    
+    function getHumanChoice (){
+        humanChoice = prompt('Choose!');
+    }
 // Create function determineWinner
