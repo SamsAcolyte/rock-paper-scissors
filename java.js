@@ -5,8 +5,8 @@
     let humanChoice;
 
 // Create score variables
-let humanScore = 0;
-let computerScore = 0;
+let humanScore = Number (document.querySelector('#hs').textContent)
+let computerScore = Number (document.querySelector('#cs').textContent)
 
 // Create variable for select element
     const select = document.getElementById('selectOption')
@@ -58,16 +58,19 @@ let computerScore = 0;
             || (computerChoice === 'paper' && humanChoice === 'scissors')
             || (computerChoice === 'scissors' && humanChoice === 'rock')
         )
-        {
+        { if humanScore
             humanScore += 1;
-            alert ('You win!');
+            document.querySelector('#hs').textContent = humanScore;
+            alert ('You win the round!');
         }
 
         // Human lose
 
         else {
             computerScore += 1;
-            alert ('You lose!');
+            document.querySelector('#cs').textContent = computerScore;
+
+            alert ('You lose the round!');
         }
     }
 // Create function play
@@ -87,5 +90,13 @@ const playButton = document.querySelector('.playButton')
 // Add event listener to button
 playButton.addEventListener('click',play)
 
+
+// Add win or lose condition
+if (humanScore === 3) {
+    alert ('You won!')
+}
+else if (computerScore === 3) {
+    alert ('You lost!')
+}
 
 
