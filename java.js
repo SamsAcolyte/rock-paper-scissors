@@ -24,18 +24,17 @@ function getComputerChoice(){
 // Create function determineWinner
     function determineWinner () {
         // alert computerChoice
-        alert (`computer chose ${computerChoice} `)
+        alert (`computer chose ${computerChoice} and you chose ${humanChoice} `)
         // Draw
 
-        if (computerChoice === 'rock' && humanChoice === 'rock'){
-            alert ('Draw! Computer chose rock as you did')
+        if ((computerChoice === 'rock' && humanChoice === 'rock')
+            || (computerChoice === 'paper' && humanChoice === 'paper')
+            || (computerChoice === 'scissors' && humanChoice === 'scissors')
+        )
+        {
+            alert ('Draw!')
         }
-        else if (computerChoice === 'paper' && humanChoice === 'paper') {
-            alert ('Draw! Computer chose paper as you did')
-        }
-        else if (computerChoice === 'scissors' && humanChoice === 'scissors') {
-            alert ('Draw! Computer chose scissors as you did')
-        }
+        
 
 
         // Computer chose rock
