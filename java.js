@@ -68,3 +68,19 @@
             alert ('You lose!')
         }
     }
+// Create function play
+    function play (){
+        if (humanChoice === undefined || humanChoice === 'didNotChoose'){
+            alert ('You did not choose!')
+        }
+        else {
+            getComputerChoice();
+            determineWinner();
+        }
+    }
+
+// Create variable for play button
+const playButton = document.querySelector('.playButton')
+
+// Add event listener to button
+playButton.addEventListener('click',play)
