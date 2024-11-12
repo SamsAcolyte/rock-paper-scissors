@@ -20,4 +20,47 @@ function getComputerChoice(){
     function getHumanChoice (){
         humanChoice = prompt('Choose!');
     }
+
 // Create function determineWinner
+    function determineWinner () {
+        // Draw
+
+        if (computerChoice === 'rock' && humanChoice === 'rock'){
+            alert ('Draw! Computer chose rock as you did')
+        }
+        else if (computerChoice === 'paper' && humanChoice === 'paper') {
+            alert ('Draw! Computer chose paper as you did')
+        }
+        else if (computerChoice === 'scissors' && humanChoice === 'scissors') {
+            alert ('Draw! Computer chose scissors as you did')
+        }
+
+
+        // Computer chose rock
+
+        else if (computerChoice === 'rock' && humanChoice === 'paper') {
+            alert ('You win! Computer chose rock')
+        }
+        else if (computerChoice === 'rock' && humanChoice === 'scissors'){
+            alert ('You lose! Computer chose rock')
+        }
+
+
+        // Computer chose paper
+
+        else if (computerChoice === 'paper' && humanChoice === 'scissors'){
+            alert ('You win! Computer chose paper')
+        }
+        else if (computerChoice === 'paper' && humanChoice === 'rock'){
+            alert ('You lose! Computer chose paper')
+        }
+
+        // computer chose scissors
+
+        else if (computerChoice === 'scissors' && humanChoice === 'rock'){
+            alert ('You win! Computer chose scissors')
+        }
+        else if (computerChoice === 'scissors' && humanChoice === 'paper'){
+            alert ('You lose! Computer chose scissors')
+        }
+    }
