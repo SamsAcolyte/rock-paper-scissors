@@ -58,7 +58,7 @@ let computerScore = Number (document.querySelector('#cs').textContent)
             || (computerChoice === 'paper' && humanChoice === 'scissors')
             || (computerChoice === 'scissors' && humanChoice === 'rock')
         )
-        { if humanScore
+        {
             humanScore += 1;
             document.querySelector('#hs').textContent = humanScore;
             alert ('You win the round!');
