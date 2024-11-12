@@ -1,5 +1,5 @@
 # rock-paper-scissors
-This is the first project to me made after learning few javascript basics.
+This is the first project I made after learning few javascript basics.
 
 The player competes against the computer, with scores tracked until one side reaches three wins.
 
