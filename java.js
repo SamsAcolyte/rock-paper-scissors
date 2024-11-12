@@ -4,7 +4,13 @@
 // Create variable humanChoice
     let humanChoice;
 
+// Create variable for select element
+    const select = document.getElementById('selectOption')
 
+// Create event listener to human choice
+    select.addEventListener('change', function getHumanChoice(){
+        humanChoice = select.value
+    })
 // Create function getComputerChoice
     function getComputerChoice(){
 
@@ -22,9 +28,9 @@
     }
 
 // Create function getHumanChoice
-    function getHumanChoice (){
-        humanChoice = prompt('Choose!');
-    }
+    // function getHumanChoice (){
+    //     humanChoice = prompt('Choose!');
+    // }
 
 // Create function determineWinner
     function determineWinner () {
