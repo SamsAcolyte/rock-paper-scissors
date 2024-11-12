@@ -1,8 +1,8 @@
 // Create variable computerChoice
-    let computerChoice;
+    let computerChoice
 
 // Create variable humanChoice
-    let humanChoice;
+    let humanChoice
 
 // Create score variables
 let humanScore = Number (document.querySelector('#hs').textContent)
@@ -12,16 +12,18 @@ let computerScore = Number (document.querySelector('#cs').textContent)
 const playButton = document.querySelector('.playButton')
 
 // Create variable for select element
-    const select = document.getElementById('selectOption')
+const select = document.getElementById('selectOption')
 
 // Create event listener to human choice
     select.addEventListener('change', function getHumanChoice(){
-        humanChoice = select.value
-    })
+        humanChoice = select.value})
+
+
+        
 // Create function getComputerChoice
     function getComputerChoice(){
 
-    computerChoice= Math.random(computerChoice);
+    computerChoice= Math.random();
 
     if (computerChoice <= 0.333) {
         computerChoice ='rock'
@@ -74,6 +76,7 @@ const playButton = document.querySelector('.playButton')
             }
         }
 
+        
         // Human lose
 
         else {
