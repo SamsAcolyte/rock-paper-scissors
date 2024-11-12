@@ -8,6 +8,9 @@
 let humanScore = Number (document.querySelector('#hs').textContent)
 let computerScore = Number (document.querySelector('#cs').textContent)
 
+// Create variable for play button
+const playButton = document.querySelector('.playButton')
+
 // Create variable for select element
     const select = document.getElementById('selectOption')
 
@@ -35,8 +38,9 @@ let computerScore = Number (document.querySelector('#cs').textContent)
 // Create function determineWinner
     function determineWinner () {
 
+        
         // alert computerChoice
-        alert (`computer chose ${computerChoice} and you chose ${humanChoice} `)
+        alert (`You threw ${humanChoice} and Computer threw ${computerChoice}`)
         
         
         // Draw
@@ -61,7 +65,13 @@ let computerScore = Number (document.querySelector('#cs').textContent)
         {
             humanScore += 1;
             document.querySelector('#hs').textContent = humanScore;
+            if (humanScore === 3){
+                alert ('HURRAY! you won the game!')
+                document.querySelector('.playButton').textContent = 'Play again!'
+            }
+            else {
             alert ('You win the round!');
+            }
         }
 
         // Human lose
@@ -69,34 +79,49 @@ let computerScore = Number (document.querySelector('#cs').textContent)
         else {
             computerScore += 1;
             document.querySelector('#cs').textContent = computerScore;
-
+            if (computerScore === 3){
+                alert ('OH NO! You lost the game!')
+                document.querySelector('.playButton').textContent = 'Play again!'
+            }
+            else {
             alert ('You lose the round!');
+            }
         }
     }
+
 // Create function play
     function play (){
+
         if (humanChoice === undefined || humanChoice === 'didNotChoose'){
             alert ('You did not choose!')
         }
+
+        else if (humanScore === 3 || computerScore === 3) {
+           
+            humanScore = 0;
+            computerScore = 0;
+            
+            document.querySelector('#hs').textContent = humanScore;
+            document.querySelector('#cs').textContent = computerScore;
+            
+            document.querySelector('.playButton').textContent = 'Play!'
+
+            getComputerChoice();
+            determineWinner();
+        }
+        
         else {
             getComputerChoice();
             determineWinner();
         }
     }
 
-// Create variable for play button
-const playButton = document.querySelector('.playButton')
+
 
 // Add event listener to button
 playButton.addEventListener('click',play)
 
 
-// Add win or lose condition
-if (humanScore === 3) {
-    alert ('You won!')
-}
-else if (computerScore === 3) {
-    alert ('You lost!')
-}
+
 
 
