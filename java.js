@@ -23,6 +23,8 @@ function getComputerChoice(){
 
 // Create function determineWinner
     function determineWinner () {
+        // alert computerChoice
+        alert (`computer chose ${computerChoice} `)
         // Draw
 
         if (computerChoice === 'rock' && humanChoice === 'rock'){
