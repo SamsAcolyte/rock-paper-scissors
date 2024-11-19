@@ -1,5 +1,13 @@
 # rock-paper-scissors
-This is the first project to me made after learning few javascript basics.
+Revisted as per odinproject demand: 
+now html is linked to myRev code:
+- buttons instead of dropdown select for each choice.
+- dynamically update logs and results to DOM instead of alerts
+- use Math.floor 
+- first to 5 wins
+- lesbianism hidden path
+
+This is the first project I made after learning few javascript basics.
 
 The player competes against the computer, with scores tracked until one side reaches three wins.
 
@@ -13,6 +21,6 @@ Winner Determination: A function determines the winner based on game rules, upda
 
 Game Reset: The game resets once three rounds is won by player or computer.
 
-my javascrip solution is named myCode
+my javascript solution is named myCode
 
 chatGpt revision on my code is name chatGptRevision
