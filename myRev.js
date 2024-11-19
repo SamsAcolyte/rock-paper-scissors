@@ -116,7 +116,7 @@ function lesbianism() {
     const finalMessage = document.createElement('p');
     finalMessage.style.fontWeight = 'bold';
     finalMessage.style.color = 'red';
-    finalMessage.textContent = 'AH 💦 💦 ';
+    finalMessage.textContent = 'ah 💦 💦 ';
     roundLogContainer.appendChild(finalMessage);
 
     isGameActive = false; // Stop the game
