@@ -6,21 +6,30 @@ let computerScore =0;
 let humanChoice;
 // Create function getHumanChoice
 function getHumanChoice() {
-     humanChoice = select.value
+     
 }
 
-// Link select
-const select = document.querySelector('#selectOption')
-select.addEventListener('change',getHumanChoice)
+
+
 // link scores
 const humanScoreOutput = document.querySelector('#hs');
 const computerScoreOutput = document.querySelector('#cs');
 
-// Link playbutton
-const playButton = document.querySelector('.playButton')
 
-// add eventlistener to button
-playButton.addEventListener('click', play)
+// Get buttons and add event listeners to them
+const playButton= document.querySelectorAll('.humanOptions button');
+
+playButton.forEach(button => {
+    
+    button.addEventListener('click',  () => {  
+        humanChoice = button.value;
+        play();
+
+        }
+    )
+})
+
+
 // Create funciton getComputerChoice
 function getComputerChoice (){
     const randomNumber = Math.random()
