@@ -58,11 +58,8 @@ function determineWinner (computer, human) {
 // create function play
 function play () {
 
-    if (!humanChoice || humanChoice === 'didNotChoose') {
-        alert('You did not choose!');
-        return;
-    }
-    if (humanScore === 3 || computerScore === 3) {
+
+    if (humanScore === 5 || computerScore === 5) {
         humanScore = 0;
         computerScore = 0;
         humanScoreOutput.textContent = humanScore;
@@ -87,10 +84,10 @@ function play () {
     }
     else {alert ('draw')}
 
-    if (humanScore === 3) {
+    if (humanScore === 5) {
         alert('HURRAY! You won the game!');
         playButton.textContent = 'Play again!';
-    } else if (computerScore === 3) {
+    } else if (computerScore === 5) {
         alert('OH NO! You lost the game!');
         playButton.textContent = 'Play again!';
     }
