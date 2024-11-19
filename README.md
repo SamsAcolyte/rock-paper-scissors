@@ -1,5 +1,5 @@
 # rock-paper-scissors
-Revisted as per odinproject demand: 
+Revisted on 19,Nov as per odinproject demand: 
 now html is linked to myRev code:
 - buttons instead of dropdown select for each choice.
 - dynamically update logs and results to DOM instead of alerts
@@ -23,4 +23,4 @@ Game Reset: The game resets once three rounds is won by player or computer.
 
 my javascript solution is named myCode
 
-chatGpt revision on my code is name chatGptRevision
+Chatgpt's revision on my code is in the file named chatGptRevision.
