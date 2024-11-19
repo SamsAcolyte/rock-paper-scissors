@@ -1,94 +1,123 @@
-// create scores
+// Create scores
 let humanScore = 0;
-let computerScore =0;
+let computerScore = 0;
+let isGameActive = true; // Flag to control game activity
 
-// Create humanChoice
-let humanChoice;
-// Create function getHumanChoice
-function getHumanChoice() {
-     
-}
-
-
-
-// link scores
+// DOM elements
 const humanScoreOutput = document.querySelector('#hs');
 const computerScoreOutput = document.querySelector('#cs');
+const resetButton = document.querySelector('.reset');
+const roundLogContainer = document.querySelector('.roundLog');
 
-
-// Get buttons and add event listeners to them
-const playButton= document.querySelectorAll('.humanOptions button');
-
-playButton.forEach(button => {
-    
-    button.addEventListener('click',  () => {  
-        humanChoice = button.value;
-        play();
-
+// Get buttons and add event listeners
+const playButtons = document.querySelectorAll('.humanOptions button');
+playButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        if (isGameActive) {
+            const humanChoice = button.value;
+            play(humanChoice);
         }
-    )
-})
+    });
+});
 
-
-// Create funciton getComputerChoice
-function getComputerChoice (){
-    const randomNumber = Math.random()
-    if (randomNumber <= 0.333) {
-        return 'rock'
-    }
-    else if (randomNumber <= 0.666) {
-        return 'paper'
-    }
-    else {return 'scissors'}
+// Get computer's choice
+function getComputerChoice() {
+    const choices = ['rock', 'paper', 'scissors'];
+    return choices[Math.floor(Math.random() * choices.length)];
 }
 
-// create function determineWinner
-function determineWinner (computer, human) {
-    if (computer === human) {
-        return 'draw'
+// Determine the winner of a round
+function determineWinner(computer, human) {
+    if (computer === human) return 'draw';
+    if (
+        (computer === 'rock' && human === 'scissors') ||
+        (computer === 'paper' && human === 'rock') ||
+        (computer === 'scissors' && human === 'paper')
+    ) {
+        return 'computer';
     }
-    if ((computer === 'rock' && human === 'paper')
-        || (computer === 'paper' && human === 'scissors')
-        || (computer === 'scissors' && human === 'rock')) {
-            return 'human'
-        }
-    else { return 'computer'}    
+    return 'human';
 }
 
-// create function play
-function play () {
-
-
-    if (humanScore === 5 || computerScore === 5) {
-        humanScore = 0;
-        computerScore = 0;
-        humanScoreOutput.textContent = humanScore;
-        computerScoreOutput.textContent = computerScore;
-        playButton.textContent = 'Play!';
-        alert('New game started!');
-    }
+// Play a round
+function play(humanChoice) {
     const computerChoice = getComputerChoice();
-    const winner = determineWinner (computerChoice, humanChoice)
-    
-    alert(`You chose ${humanChoice}, Computer chose ${computerChoice}`);
-   
+
+    // Check for "lesbianism"
+    if (humanChoice === 'scissors' && computerChoice === 'scissors') {
+        lesbianism();
+        return;
+    }
+
+    const winner = determineWinner(computerChoice, humanChoice);
+
+    // Update scores and log
     if (winner === 'computer') {
         computerScore++;
         computerScoreOutput.textContent = computerScore;
-        alert ('You lost the round')
-    }
-    else if (winner === 'human') {
+    } else if (winner === 'human') {
         humanScore++;
         humanScoreOutput.textContent = humanScore;
-        alert ('You won the round')
     }
-    else {alert ('draw')}
+    logRound(humanChoice, computerChoice, winner);
 
-    if (humanScore === 5) {
-        alert('HURRAY! You won the game!');
-        playButton.textContent = 'Play again!';
-    } else if (computerScore === 5) {
-        alert('OH NO! You lost the game!');
-        playButton.textContent = 'Play again!';
+    // Check if the game is over
+    if (humanScore === 5 || computerScore === 5) {
+        announceWinner();
     }
+}
+
+// Log the results of a round
+function logRound(human, computer, winner) {
+    const log = document.createElement('li');
+    log.textContent = `You played ${human}, computer played ${computer}. ${
+        winner === 'draw' ? "It's a draw!" : `${winner} wins the round!`
+    }`;
+    roundLogContainer.appendChild(log);
+}
+
+// Announce the winner
+function announceWinner() {
+    const finalMessage = document.createElement('p');
+    finalMessage.style.fontWeight = 'bold';
+    finalMessage.style.color = 'green';
+    finalMessage.textContent =
+        humanScore === 5
+            ? 'wow u won...'
+            : '💻 🎉 COMPUTER WON! U SUCK DICK GEH 💻 🎉';
+    roundLogContainer.appendChild(finalMessage);
+    isGameActive = false; // Stop the game
+}
+
+// Reset the game
+resetButton.addEventListener('click', resetGame);
+
+function resetGame() {
+    humanScore = 0;
+    computerScore = 0;
+    humanScoreOutput.textContent = humanScore;
+    computerScoreOutput.textContent = computerScore;
+    roundLogContainer.innerHTML = ''; // Clear the log
+    document.body.style.backgroundColor = ''; // Reset background color
+    isGameActive = true; // Reactivate the game
+    alert('The game has been reset. Play again!');
+}
+
+// Handle "lesbianism" scenario
+function lesbianism() {
+    const log = document.createElement('li');
+    log.textContent = `You played scissors, computer played scissors. It's lesbianism. 🌈`;
+    roundLogContainer.appendChild(log);
+
+    document.body.style.backgroundColor = '#FFC0CB'; // Change background to pink
+    humanScoreOutput.textContent = '✂️';
+    computerScoreOutput.textContent = '✂️';
+
+    const finalMessage = document.createElement('p');
+    finalMessage.style.fontWeight = 'bold';
+    finalMessage.style.color = 'red';
+    finalMessage.textContent = 'AH 💦 💦 ';
+    roundLogContainer.appendChild(finalMessage);
+
+    isGameActive = false; // Stop the game
 }
