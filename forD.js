@@ -8,15 +8,37 @@ const humanScoreOutput = document.querySelector('#hs');
 const computerScoreOutput = document.querySelector('#cs');
 const resetButton = document.querySelector('.reset');
 const roundLogContainer = document.querySelector('.roundLog');
+const playButtons = document.querySelectorAll('.humanOptions button');
+
+// DONUT 
+let isDonutVerified = false; // Track if Donut has verified
 
 // Get buttons and add event listeners
-const playButtons = document.querySelectorAll('.humanOptions button');
 playButtons.forEach(button => {
     button.addEventListener('click', () => {
-        if (isGameActive) {
-            const humanChoice = button.value;
-            play(humanChoice);
+        // Check if game is inactive
+        if (!isGameActive) {
+            // If Donut is not verified, prompt for password
+            if (!isDonutVerified) {
+                const donut = prompt('Are you donut? If so, enter the password:', '');
+                if (donut === 'I love unicorns') {
+                    isDonutVerified = true; // Mark Donut as verified
+                    isGameActive = true; // Reactivate the game
+                    updateScores(); // Update both scores immediately
+                    alert("Welcome back, Donut! The game is active again.");
+                } else {
+                    alert("You're not donut.");
+                    return; // Stop further processing
+                }
+            } else {
+                alert("Game is inactive. Please reset the game.");
+                return; // Prevent playing without resetting
+            }
         }
+
+        // Normal gameplay
+        const humanChoice = button.value;
+        play(humanChoice);
     });
 });
 
@@ -76,6 +98,12 @@ function logRound(human, computer, winner) {
     roundLogContainer.appendChild(log);
 }
 
+// Function to update scores for Donut
+function updateScores() {
+    humanScoreOutput.textContent = humanScore;
+    computerScoreOutput.textContent = computerScore;
+}
+
 // Announce the winner
 function announceWinner() {
     const finalMessage = document.createElement('p');
@@ -86,7 +114,7 @@ function announceWinner() {
             ? 'wow u won...'
             : '💻 🎉 COMPUTER WON! U SUCK DICK GEH 💻 🎉';
     roundLogContainer.appendChild(finalMessage);
-    isGameActive = false; // Stop the game
+    isGameActive = false; // Stop the game after winner is announced
 }
 
 // Reset the game
@@ -100,6 +128,7 @@ function resetGame() {
     roundLogContainer.innerHTML = ''; // Clear the log
     document.body.style.backgroundColor = ''; // Reset background color
     isGameActive = true; // Reactivate the game
+    isDonutVerified = false; // Reset Donut verification so they need to enter password again
     alert('The game has been reset. Play again!');
 }
 
@@ -119,5 +148,8 @@ function lesbianism() {
     finalMessage.textContent = 'ah 💦 💦 ';
     roundLogContainer.appendChild(finalMessage);
 
-    isGameActive = false; // Stop the game
+    // Deactivate the game after lesbianism scenario, but allow Donut to keep playing
+    if (!isDonutVerified) {
+        isGameActive = false; // Stop the game
+    }
 }
