@@ -21,7 +21,7 @@ playButtons.forEach(button => {
             // If Donut is not verified, prompt for password
             if (!isDonutVerified) {
                 const donut = prompt('Are you donut? If so, enter the password:', '');
-                if (donut === 'I am horny') {
+                if (donut === 'I love unicorns') {
                     isDonutVerified = true; // Mark Donut as verified
                     isGameActive = true; // Reactivate the game
                     updateScores(); // Update both scores immediately
